@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         btnTambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String h = proses(Integer.parseInt(angka1.getText().toString()),
-                                                    Integer.parseInt(angka2.getText().toString()),
-                                                            Integer.parseInt(angka3.getText().toString()), "tambah");
+                String h = proses(angka1.getText().toString(),
+                                                    angka2.getText().toString(),
+                                                            angka3.getText().toString(), "tambah");
                 hasil.setText(h);
             }
         });
@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
         btnKurang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String h = proses(Integer.parseInt(angka1.getText().toString()),
-                        Integer.parseInt(angka2.getText().toString()),
-                        Integer.parseInt(angka3.getText().toString()), "kurang");
+                String h = proses(angka1.getText().toString(),
+                        angka2.getText().toString(),
+                        angka3.getText().toString(), "kurang");
                 hasil.setText(h);
             }
         });
@@ -55,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
         btnKali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String h = proses(Integer.parseInt(angka1.getText().toString()),
-                        Integer.parseInt(angka2.getText().toString()),
-                        Integer.parseInt(angka3.getText().toString()), "kali");
+                String h = proses(angka1.getText().toString(),
+                        angka2.getText().toString(),
+                        angka3.getText().toString(), "kali");
                 hasil.setText(h);
             }
         });
@@ -65,30 +65,36 @@ public class MainActivity extends AppCompatActivity {
         btnBagi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String h = proses(Integer.parseInt(angka1.getText().toString()),
-                        Integer.parseInt(angka2.getText().toString()),
-                        Integer.parseInt(angka3.getText().toString()), "bagi");
+                String h = proses(angka1.getText().toString(),
+                        angka2.getText().toString(),
+                        angka3.getText().toString(), "bagi");
                 hasil.setText(h);
             }
         });
     }
 
-    public String proses(int angka1, int angka2, int angka3, String jenis){
+    public String proses(String angka1, String angka2, String angka3, String jenis){
         String hasil = "";
         int a1 = 0;
         int a2 = 0;
         int a3 = 0;
 
         if (chk1.isChecked()){
-            a1 = angka1;
+            if (!angka1.equals("")){
+                a1 = Integer.parseInt(angka1);
+            }
         }
 
         if (chk2.isChecked()){
-            a2 = angka2;
+            if (!angka2.equals("")){
+                a2 = Integer.parseInt(angka2);
+            }
         }
 
         if (chk3.isChecked()){
-            a3 = angka3;
+            if (!angka3.equals("")){
+                a3 = Integer.parseInt(angka3);
+            }
         }
 
         if (jenis.equals("tambah")){
